@@ -860,6 +860,7 @@ default_socket_timeout = 60
 ; default extension directory.
 
 extension=apc.so
+zend_extension=opcache.so
 
 ;;;;;;;;;;;;;;;;;;;
 ; Module Settings ;
