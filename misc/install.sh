@@ -18,15 +18,15 @@ cd tmp/
 # INSTALL APACHE
 wget http://www.eu.apache.org/dist/httpd/httpd-2.4.18.tar.gz
 tar -zxf httpd-2.4.18.tar.gz
-wget http://ftp.ps.pl/pub/apache//apr/apr-1.4.8.tar.gz
-tar -zxf apr-1.4.8.tar.gz
-mv apr-1.4.8 httpd-2.4.18/srclib/apr
-wget http://ftp.ps.pl/pub/apache//apr/apr-util-1.5.2.tar.gz
-tar -zxf apr-util-1.5.2.tar.gz
+wget http://www.eu.apache.org/dist//apr/apr-1.5.2.tar.gz
+tar -zxf apr-1.5.2.tar.gz
+mv apr-1.5.2 httpd-2.4.18/srclib/apr
+wget http://ftp.ps.pl/pub/apache//apr/apr-util-1.5.4.tar.gz
+tar -zxf apr-util-1.5.4.tar.gz
 mv apr-util-1.5.2 httpd-2.4.18/srclib/apr-util
-wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.33.tar.gz
-tar -zxf pcre-8.33.tar.gz
-cd pcre-8.33
+wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.gz
+tar -zxf pcre-8.37.tar.gz
+cd pcre-8.37
 ./configure \
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/pcre
 make && make install
@@ -58,8 +58,8 @@ cd ..
 rm -f -r libmcrypt-2.5.8
 
 # INSTALL ICU
-wget http://download.icu-project.org/files/icu4c/51.2/icu4c-51_2-src.tgz
-tar -zxf icu4c-51_2-src.tgz
+wget http://download.icu-project.org/files/icu4c/56.1/icu4c-56_1-src.tgz
+tar -zxf icu4c-56_1-src.tgz
 cd icu/source/
 chmod +x runConfigureICU configure install-sh
 ./configure \
@@ -79,19 +79,19 @@ cd ..
 rm -f -r zlib-1.2.8
 
 # INSTALL CURL
-wget http://curl.haxx.se/download/curl-7.31.0.tar.gz
-tar -zxf curl-7.31.0.tar.gz
-cd curl-7.31.0
+wget https://curl.haxx.se/download/curl-7.47.1.tar.gz
+tar -zxf curl-7.47.1.tar.gz
+cd curl-7.47.1
 ./configure \
 --with-libdir=lib64 \
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/libcurl \
 --with-zlib=$OPENSHIFT_RUNTIME_DIR/srv/zlib
 make && make install
 cd ..
-rm -f -r curl-7.31.0
+rm -f -r curl-7.47.1
 
 # INSTALL PHP
-wget http://php.net/get/php-5.6.18.tar.gz/from/a/mirror
+wget http://php.net/get/php-5.6.18.tar.gz/from/this/mirror
 tar -zxf php-5.6.18.tar.gz
 cd php-5.6.18
 ./configure \
