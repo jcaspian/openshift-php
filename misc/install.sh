@@ -11,21 +11,21 @@ mkdir srv/httpd
 mkdir srv/php
 mkdir tmp
 cd tmp/
-wget http://ftp.halifax.rwth-aachen.de/apache/httpd/httpd-2.4.12.tar.gz
-tar -zxf httpd-2.4.12.tar.gz
+wget http://www.eu.apache.org/dist/httpd/httpd-2.4.18.tar.gz
+tar -zxf httpd-2.4.18.tar.gz
 wget http://artfiles.org/apache.org/apr/apr-1.5.2.tar.gz
 tar -zxf apr-1.5.2.tar.gz
-mv apr-1.5.2 httpd-2.4.12/srclib/apr
+mv apr-1.5.2 httpd-2.4.18/srclib/apr
 wget http://artfiles.org/apache.org/apr/apr-util-1.5.2.tar.gz
 tar -zxf apr-util-1.5.2.tar.gz
-mv apr-util-1.5.2 httpd-2.4.12/srclib/apr-util
+mv apr-util-1.5.2 httpd-2.4.18/srclib/apr-util
 wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.gz
 tar -zxf pcre-8.37.tar.gz
 cd pcre-8.37
 ./configure \
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/pcre
 make && make install
-cd ../httpd-2.4.12
+cd ../httpd-2.4.18
 ./configure \
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/httpd \
 --with-included-apr \
@@ -42,8 +42,8 @@ cd ..
 rm -r $OPENSHIFT_RUNTIME_DIR/tmp/*.tar.gz
 
 # INSTALL PHP
-wget http://download.icu-project.org/files/icu4c/50.1/icu4c-50_1-src.tgz
-tar -zxf icu4c-50_1-src.tgz
+wget http://download.icu-project.org/files/icu4c/50.1/icu4c-56_1-src.tgz
+tar -zxf icu4c-56_1-src.tgz
 cd icu/source/
 chmod +x runConfigureICU configure install-sh
 ./configure \
@@ -58,9 +58,9 @@ chmod +x configure
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/zlib/
 make && make install
 cd ../..
-wget http://de2.php.net/get/php-5.4.40.tar.gz/from/this/mirror
-tar -zxf php-5.4.40.tar.gz
-cd php-5.4.40
+wget http://php.net/get/php-5.6.18.tar.gz/from/a/mirror
+tar -zxf php-5.6.18.tar.gz
+cd php-5.6.18
 ./configure \
 --with-libdir=lib64 \
 --prefix=$OPENSHIFT_RUNTIME_DIR/srv/php/ \
