@@ -23,7 +23,7 @@ tar -zxf apr-1.5.2.tar.gz
 mv apr-1.5.2 httpd-2.4.18/srclib/apr
 wget http://ftp.ps.pl/pub/apache//apr/apr-util-1.5.4.tar.gz
 tar -zxf apr-util-1.5.4.tar.gz
-mv apr-util-1.5.2 httpd-2.4.18/srclib/apr-util
+mv apr-util-1.5.4 httpd-2.4.18/srclib/apr-util
 wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.gz
 tar -zxf pcre-8.37.tar.gz
 cd pcre-8.37
